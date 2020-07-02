@@ -1,6 +1,7 @@
 pipeline{
   agent none
-  stage('Build'){
+  stages{
+    stage('Build'){
       agent{
         docker{
           image 'python:3-slim'
@@ -11,5 +12,5 @@ pipeline{
         stash (name: 'compiled-results', includes : 'sources/*.py*' )
       }    
     }
-  
+  }
 }
